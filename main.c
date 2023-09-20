@@ -19,7 +19,7 @@ int main(int ac, char **argv)
 		l = rdl();
 		if (l == NULL)
 		{
-			if (isatty(STDIN_FILENO))
+			if (isatty(STDIN_FILENO) != 0)
 				write(STDOUT_FILENO, "\n", 1);
 			return (stts);
 		}

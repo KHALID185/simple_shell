@@ -15,7 +15,7 @@ char **spl(char *l)
 	if (!l)
 		return (NULL);
 	garage = str_dp(l);
-	tk = strtok(garage, "/n/t ");
+	tk = strtok(garage, " \t\n");
 	if (tk == NULL)
 	{
 		free(garage), garage = NULL;
@@ -25,7 +25,7 @@ char **spl(char *l)
 	while (tk)
 	{
 		counter++;
-		tk = strtok(NULL, "/n/t ");
+		tk = strtok(NULL, " \t\n");
 	}
 	free(garage), garage = NULL;
 
@@ -35,11 +35,11 @@ char **spl(char *l)
 		free(l), l = NULL;
 		return (NULL);
 	}
-	tk = strtok(l, "/n/t ");
+	tk = strtok(l, " \t\n");
 	while (tk)
 	{
 		cmd[j] = str_dp(tk);
-		tk = strtok(NULL, "/n/t ");
+		tk = strtok(NULL, " \t\n");
 		j++;
 	}
 	free(l);
