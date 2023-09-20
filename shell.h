@@ -23,7 +23,7 @@ int str_l(char *str);
 
 
 char *rdl(void);
-int exc(char **cmmmd, char **argv);
+int exc(char **cmmmd, char **av);
 char **spl(char *l);
 
 #endif
