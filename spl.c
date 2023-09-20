@@ -18,10 +18,8 @@ char **spl(char *l)
 	tk = strtok(garage, "/n/t ");
 	if (tk == NULL)
 	{
-		free(garage);
-		garage = NULL;
-		free(l);
-		l = NULL;
+		free(garage), garage = NULL;
+		free(l), l = NULL;
 		return (NULL);
 	}
 	while (tk)
@@ -29,14 +27,12 @@ char **spl(char *l)
 		counter++;
 		tk = strtok(NULL, "/n/t ");
 	}
-	free(garage);
-	garage = NULL;
+	free(garage), garage = NULL;
 
 	cmd = malloc(sizeof(char *) * (counter + 1));
 	if (!cmd)
 	{
-		free(l);
-		l = NULL;
+		free(l), l = NULL;
 		return (NULL);
 	}
 	tk = strtok(l, "/n/t ");
@@ -47,7 +43,6 @@ char **spl(char *l)
 		j++;
 	}
 	free(l);
-	l = NULL;
-	cmd[j] = NULL;
+	l = NULL, cmd[j] = NULL;
 	return (cmd);
 }
