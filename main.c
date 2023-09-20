@@ -3,11 +3,11 @@
 /**
  * main - a function that read line and excute command entry fct
  * @ac: argument counter
- * @argv: argument vecteur
+ * @av: argument vecteur
  * Return: 0 success
 */
 
-int main(int ac, char **argv)
+int main(int ac, char **av)
 {
 	char **cmmd = NULL;
 	char *l = NULL;
@@ -27,6 +27,6 @@ int main(int ac, char **argv)
 		if (!cmmd)
 			continue;
 
-		stts = exc(cmmd, argv);
+		stts = exc(cmmd, av);
 	}
 }

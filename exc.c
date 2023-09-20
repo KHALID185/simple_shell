@@ -3,13 +3,12 @@
 /**
  * exc - excute the shell
  * @cmmmd: the command array
- * @argv: double pointer
+ * @av: double pointer
  * Return: integer
 */
 
-int exc(char **cmmmd, char **argv)
+int exc(char **cmmmd, char **av)
 {
-	      
 	int sts;
 	int j;
 	pid_t enfant;
@@ -20,7 +19,7 @@ int exc(char **cmmmd, char **argv)
 	{
 		if (execve(cmmmd[0], cmmmd, environ) == -1)
 		{
-			perror(argv[0]);
+			perror(av[0]);
 			for (j = 0; cmmmd[j]; j++)
 			{
 				free(cmmmd[j]);
@@ -33,7 +32,7 @@ int exc(char **cmmmd, char **argv)
 	}
 	else
 	{
-
+		waitpid(enfant, &sts, 0);
 		for (j = 0; cmmmd[j]; j++)
 		{
 			free(cmmmd[j]);
