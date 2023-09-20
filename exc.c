@@ -21,7 +21,7 @@ int exc(char **cmmmd, char **argv)
 		if (execve(cmmmd[0], cmmmd, environ) == -1)
 		{
 			perror(argv[0]);
-			for (j = 0; cmmmd[j]; j--)
+			for (j = 0; cmmmd[j]; j++)
 			{
 				free(cmmmd[j]);
 				cmmmd[j] = NULL;
@@ -33,7 +33,7 @@ int exc(char **cmmmd, char **argv)
 	}
 	else
 	{
-		waitpid(enfant, &sts, 0);
+
 		for (j = 0; cmmmd[j]; j++)
 		{
 			free(cmmmd[j]);
