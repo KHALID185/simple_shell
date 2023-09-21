@@ -28,6 +28,9 @@ int main(int ac, char **av)
 		if (!cmmd)
 			continue;
 
-		stts = exc(cmmd, av, n_dx);
+		if (b_in(cmmd[0]))
+			h_b(cmmd, av, &stts, n_dx);
+		else
+			stts = exc(cmmd, av, n_dx);
 	}
 }

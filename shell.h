@@ -24,6 +24,12 @@ void freee(char **fred);
 char *fint(int in);
 void p_err(char *n, char *cd, int i);
 void str_rev(char *s, int l);
+void out_s(char **cmd, int *lest);
+void p_environ(char **cmd, int *stt);
+int b_in(char *cmd);
+void h_b(char **cd, char **av, int *st, int n_dx);
+
+
 
 char *rdl(void);
 int exc(char **cmmmd, char **av, int n_idx);
