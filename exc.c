@@ -34,15 +34,14 @@ int exc(char **cmmmd, char **av, int n_idx)
 				free(cmmmd[j]);
 				cmmmd[j] = NULL;
 			}
-			free(cmmmd);
-			cmmmd = NULL;
-			exit(0);
+			free(cmmmd), cmmmd = NULL;
 		}
 	}
 	else
 	{
 		waitpid(enfant, &sts, 0);
 		freee(cmmmd);
+		free(cmmd), cmmd = NULL;
 	}
 	return (WEXITSTATUS(sts));
 
