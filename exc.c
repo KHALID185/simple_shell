@@ -4,6 +4,7 @@
  * exc - excute the shell
  * @cmmmd: the command array
  * @av: double pointer
+ * @n_idx: index
  * Return: integer
 */
 
@@ -41,13 +42,7 @@ int exc(char **cmmmd, char **av, int n_idx)
 	else
 	{
 		waitpid(enfant, &sts, 0);
-		for (j = 0; cmmmd[j]; j++)
-		{
-			free(cmmmd[j]);
-			cmmmd[j] = NULL;
-		}
-		free(cmmmd), cmmmd = NULL;
-		free(cmmd), cmmd = NULL;
+		freee(cmmmd);
 	}
 	return (WEXITSTATUS(sts));
 
