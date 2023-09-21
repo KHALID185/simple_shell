@@ -30,11 +30,9 @@ int b_in(char *cmd)
 
 void h_b(char **cd, char **av, int *st, int n_dx)
 {
-	(void) av;
-	(void) n_dx;
 
 	if (str_cmp(cd[0], "exit") == 0)
-		out_s(cd, st);
+		out_s(cd, av, st, n_dx);
 	else if (str_cmp(cd[0], "env") == 0)
 		p_environ(cd, st);
 }

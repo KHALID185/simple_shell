@@ -24,11 +24,12 @@ void freee(char **fred);
 char *fint(int in);
 void p_err(char *n, char *cd, int i);
 void str_rev(char *s, int l);
-void out_s(char **cmd, int *lest);
+void out_s(char **cmd, char **av, int *lest, int n_dex);
 void p_environ(char **cmd, int *stt);
 int b_in(char *cmd);
 void h_b(char **cd, char **av, int *st, int n_dx);
-
+int intf(char *s);
+int positive(char *s);
 
 
 char *rdl(void);

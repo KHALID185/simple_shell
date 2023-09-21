@@ -22,3 +22,41 @@ void str_rev(char *s, int l)
 		fin--;
 	}
 }
+
+/**
+ * positive - test si le number est positif
+ * @s: string
+ * Return: integer
+*/
+
+int positive(char *s)
+{
+	int j;
+
+	if (s == NULL)
+		return (0);
+	for (j = 0; s[j] != '\0'; j++)
+	{
+		if (s[j] > '9' || s[j] < '0')
+			return (0);
+	}
+	return (1);
+}
+
+/**
+ * intf - convert to integer
+ * @s: a string
+ * Return: int
+*/
+
+int intf(char *s)
+{
+	int j, valeur = 0;
+
+	for (j = 0; s[j] != '\0'; j++)
+	{
+		valeur *= 10;
+		valeur += (s[j] - '0');
+	}
+	return (valeur);
+}
