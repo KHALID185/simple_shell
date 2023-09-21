@@ -11,7 +11,7 @@ int main(int ac, char **av)
 {
 	char **cmmd = NULL;
 	char *l = NULL;
-	int stts = 0;
+	int stts = 0, n_dx = 0;
 	(void) ac;
 
 	while (1)
@@ -23,10 +23,11 @@ int main(int ac, char **av)
 				write(STDOUT_FILENO, "\n", 1);
 			return (stts);
 		}
+		n_dx++;
 		cmmd = spl(l);
 		if (!cmmd)
 			continue;
 
-		stts = exc(cmmd, av);
+		stts = exc(cmmd, av, n_dx);
 	}
 }

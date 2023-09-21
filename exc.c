@@ -7,19 +7,27 @@
  * Return: integer
 */
 
-int exc(char **cmmmd, char **av)
+int exc(char **cmmmd, char **av, int n_idx)
 {
 	int sts;
 	int j;
 	pid_t enfant;
+	char *cmmd;
 
+	cmmd = path_cmd(cmmmd[0]);
+	if (cmmd == NULL)
+	{
+		p_err(av[0], cmmmd[0], n_idx);
+		freee(cmmmd);
+		return (127);
+	}
 	enfant = fork();
 
 	if (enfant == 0)
 	{
-		if (execve(cmmmd[0], cmmmd, environ) == -1)
+		if (execve(cmmd, cmmmd, environ) == -1)
 		{
-			perror(av[0]);
+			free(cmmd), cmmd = NULL;
 			for (j = 0; cmmmd[j]; j++)
 			{
 				free(cmmmd[j]);
@@ -38,8 +46,8 @@ int exc(char **cmmmd, char **av)
 			free(cmmmd[j]);
 			cmmmd[j] = NULL;
 		}
-		free(cmmmd);
-		cmmmd = NULL;
+		free(cmmmd), cmmmd = NULL;
+		free(cmmd), cmmd = NULL;
 	}
 	return (WEXITSTATUS(sts));
 
