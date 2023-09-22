@@ -7,19 +7,20 @@
 
 char *rdl(void)
 {
-	size_t l = 0;
-	ssize_t m;
-	char *ln = NULL;
+size_t l = 0;
+ssize_t m;
+char *ln = NULL;
 
-	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$ ", 2);
-	m = getline(&ln, &l, stdin);
-	if (m == -1)
-	{
-		free(ln);
-		ln = NULL;
-		return (NULL);
-	}
-	return (ln);
-
+if (isatty(STDIN_FILENO))
+{
+write(STDOUT_FILENO, "$ ", 2);
+}
+m = getline(&ln, &l, stdin);
+if (m == -1)
+{
+free(ln);
+ln = NULL;
+return (NULL);
+}
+return (ln);
 }
